@@ -33,7 +33,7 @@ print(values)
 
 #  сгенерировать список вида [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, ...]
 print('Task 4')
-n = 10
+
 values = [x for x in range(10) for i in range(x)]
 
 print(values)

@@ -1,15 +1,11 @@
-data = list()
+import os
+import math
+import time
+import random
+print(os.name)
+print(os.getlogin())
+print(os.getcwd())
 
-data = []
+print(time.time())
 
-data.append(1)
-data.append(2)
-
-print(data)
-
-print(data[0])
-
-data[0] = 12
-print(data)
-
-
+print(random.random())
