@@ -9,6 +9,9 @@ for a in data:
     print()
 print()
 
+print('--------------------')
+print('Task 1')
+
 # дано число N, сгенерировать таблицу умножения NxN и сохранить в список
 n = 9
 data = [[0 for y in range(n)] for x in range(n)]
@@ -23,7 +26,7 @@ print('---------------------')
 
 first = [1, 2, 3]
 second = [4, 5, 6]
-result = [x + y for x in first for y in second]
+result = [x * y for x in first for y in second]
 print(result)
 
 # a = 12
@@ -32,7 +35,7 @@ print(result)
 
 
 print('---------------------')
-
+print('Task 2')
 # сгененировать поле для игры "Сапёр"
 # [[0, -1, 0],
 #  [0, 0, 0],
@@ -79,10 +82,11 @@ print()
 # Вычисляем количество мин в смежных ячейках
 
 
-for i in range(1,4):
-    for j in range(1,4):
+for i in range(1, 4):
+    for j in range(1, 4):
                 if mines[i][j] == 0:
-                    zeros[i][j] = abs((mines[j-1][i-1] + mines[j-1][i] + mines[j-1][i+1]) + (mines[j][i-1] + mines[j][i+1]) + (mines[j+1][i-1] + mines[j+1][i] + mines[j+1][i+1]))
+                    count = abs((mines[j-1][i-1] + mines[j-1][i] + mines[j-1][i+1]) + (mines[j][i-1] + mines[j][i+1]) + (mines[j+1][i-1] + mines[j+1][i] + mines[j+1][i+1]))
+                    zeros[i][j] = count
                 else:
                     zeros[i][j] = -1
 
@@ -94,37 +98,37 @@ print()
 
 
 
-#
-# if mines[1][1] == 0:
-#     count11 = mines[0][0] + mines[0][1] + mines[0][2] + mines[1][0] + mines[1][2] + mines[2][0] + mines[2][1] + mines[2][2]
-#     count11 = abs(count11)
-# else:
-#     count11 = -1
-# print(count11)
-#
-# if mines[1][2] == 0:
-#     count12 = mines[0][1] + mines[0][2] + mines[0][3] + mines[1][1] + mines[1][3] + mines[2][1] + mines[2][2] + mines[2][3]
-#     count12 = abs(count12)
-# else:
-#     count12 = -1
-# print(count12)
-#
-# if mines[1][3] == 0:
-#     count13 = mines[0][2] + mines[0][3] + mines[0][4] + mines[1][2] + mines[1][4] + mines[2][2] + mines[2][3] + mines[2][4]
-#     count13 = abs(count13)
-# else:
-#     count13 = -1
-# print(count13)
-#
 
+if mines[1][1] == 0:
+    count = mines[0][0] + mines[0][1] + mines[0][2] + mines[1][0] + mines[1][2] + mines[2][0] + mines[2][1] + mines[2][2]
+    count11 = abs(count)
+else:
+    count11 = -1
+print(count11)
 
+if mines[1][2] == 0:
+    count = mines[0][1] + mines[0][2] + mines[0][3] + mines[1][1] + mines[1][3] + mines[2][1] + mines[2][2] + mines[2][3]
+    count12 = abs(count)
+else:
+    count12 = -1
+print(count12)
+
+if mines[1][3] == 0:
+    count = mines[0][2] + mines[0][3] + mines[0][4] + mines[1][2] + mines[1][4] + mines[2][2] + mines[2][3] + mines[2][4]
+    count13 = abs(count)
+else:
+    count13 = -1
+print(count13)
+
+print('--------------------')
+print('Task 3')
 # напечатать табличку змейкой
 # дано N
 # 1 2 3
 # 6 5 4
 # 7 8 9
 
-N = 5
+N = 3
 
 # создаем матрицу N x N, состоящую из нулей,
 # т.к. записать через индекс я должен в уже существующую матрицу
@@ -147,9 +151,9 @@ count = 1
 
 for row in range(N):
     for column in range(N):
-        if row % 2 == 0: # условие при котором нечетные строки распологаются в обратном порядке (реверс)
+        if row % 2 == 0: # условие при котором четные строки рассчитываются обычным образом
             snake[row][column] = count + row + column
-        else:
+        else: # а нечетные строки располагаются в обратном порядке (реверс)
             snake[row][column] = count + row + column
             snake[row].reverse()
     count = count + (N - 1)
@@ -160,9 +164,27 @@ for a in snake:
     print()
 print()
 
+print('--------------------')
+print('Task 4')
 # напечать табиличку "спиралью"
 # 1 2 3
 # 8 9 4
 # 7 6 5
 
 N = 3
+spiral = [[0 for y in range(N)] for x in range(N)]
+
+Max = N * N
+count = 0
+print(count)
+
+
+for i in range(1, N*N):
+    if i >= N:
+        spiral[i][i]
+
+for a in spiral:
+    for b in a:
+        print(b, end=' ')
+    print()
+print()
