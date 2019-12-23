@@ -174,14 +174,14 @@ print('Task 4')
 N = 3
 spiral = [[0 for y in range(N)] for x in range(N)]
 
-Max = N * N
+
 count = 1
-print(count)
 
 for row in range(N):
     for col in range(N):
-        spiral[row][col] = count
-        count += 1
+        if spiral[0][col] == 0:
+            spiral[row][col] = count
+            count += 1
 
 
 for a in spiral:
@@ -203,3 +203,4 @@ for a in spiral2:
         print(b, end=' ')
     print()
 print()
+
