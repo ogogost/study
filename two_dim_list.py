@@ -166,7 +166,7 @@ print()
 
 print('--------------------')
 print('Task 4')
-# напечать табиличку "спиралью"
+# напечать табличку "спиралью"
 # 1 2 3
 # 8 9 4
 # 7 6 5
@@ -175,15 +175,30 @@ N = 3
 spiral = [[0 for y in range(N)] for x in range(N)]
 
 Max = N * N
-count = 0
+count = 1
 print(count)
 
+for row in range(N):
+    for col in range(N):
+        spiral[row][col] = count
+        count += 1
 
-for i in range(1, N*N):
-    if i >= N:
-        spiral[i][i]
 
 for a in spiral:
+    for b in a:
+        print(b, end=' ')
+    print()
+print()
+
+#  необходимо научиться переворачивать матрицу на 90 градусов
+
+spiral2 = [[0 for y in range(N)] for x in range(N)]
+
+for row in range(N):
+    for col in range(N):
+        spiral2[row][col] = spiral[col][N -1 - row]
+
+for a in spiral2:
     for b in a:
         print(b, end=' ')
     print()
