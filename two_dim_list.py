@@ -124,7 +124,45 @@ print()
 # 6 5 4
 # 7 8 9
 
+N = 5
+
+# создаем матрицу N x N, состоящую из нулей,
+# т.к. записать через индекс я должен в уже существующую матрицу
+
+snake = [[0 for y in range(N)] for x in range(N)]
+
+# создаю переменную для записи значений возрастающей прогрессии, т.к. просто сумма номер строки и колонки не даёт искомого результата
+count = 1
+
+# C	   row	column	result
+# 1		0	0		1
+# 1		0	1		2
+# 1		0	2		3
+# 3		1	0			4
+# 3		1	1			5
+# 3		1	2			6
+# 5		2	0				7
+# 5		2	1				8
+# 5		2	2				9
+
+for row in range(N):
+    for column in range(N):
+        if row % 2 == 0: # условие при котором нечетные строки распологаются в обратном порядке (реверс)
+            snake[row][column] = count + row + column
+        else:
+            snake[row][column] = count + row + column
+            snake[row].reverse()
+    count = count + (N - 1)
+
+for a in snake:
+    for b in a:
+        print(b, end=' ')
+    print()
+print()
+
 # напечать табиличку "спиралью"
 # 1 2 3
 # 8 9 4
 # 7 6 5
+
+N = 3
