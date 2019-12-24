@@ -16,7 +16,7 @@ a = [[0 for y in range(m)] for x in range(n) ]
 
 for i in range(n):
     for j in range(m):
-        a[i][j] = n * m
+        a[i][j] = i + j
 
 print(a)
 
