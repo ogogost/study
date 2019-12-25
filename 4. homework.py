@@ -9,7 +9,7 @@ def park(n):
             break
 
         if data[i] != 0:
-            data[i + 1] = n
+            data.insert(n, i)
 
     print(data)
 
@@ -25,7 +25,7 @@ def show():
 
 while True:
     com = ''
-    com, n = input('Input command:').split()
+    com = input('Input command:').split()
     if com == 'park':
         park(n)
     elif com == 'leave':
