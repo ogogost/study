@@ -40,4 +40,5 @@ print(bmw.color, audi.color)
 str_bmw = str(bmw)
 print(bmw)
 print(bmw.__dict__)
-print(bmw.__)
+
+print(type(bmw))
