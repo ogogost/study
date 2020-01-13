@@ -42,12 +42,45 @@ class Field:
                         count += 1
 
             current_cell.mines_count = count
+            # print(count, end= ' ')
+        # else:
 
     def get_value(self, x, y):
         pass
 
     def open_cell(self, x, y):
-        pass
+        if self.data[x][y].mines_count == Cell.MINE:
+            return Cell.MINE
+        # if self.data[x][y].mines_count > 0:
+        #     return self.data[x][y].mines_count
+        self.walk(x, y)
+
+        return 1
+
+    def walk(self, x, y):
+        if self.data[x][y].is_open:
+            return
+        self.data[x][y].is_open = True
+        if self.data[x][y].mines_count > 0:
+            return
+
+        if x - 1 >= 0:
+            self.walk(x - 1, y)
+            if y + 1 < self.size:
+                self.walk(x - 1, y + 1)
+            if y - 1 >= 0:
+                self.walk(x - 1, y - 1)
+
+        if x + 1 < self.size:
+            self.walk(x + 1, y)
+            if y + 1 < self.size:
+                self.walk(x + 1, y + 1)
+            if y - 1 >= 0:
+                self.walk(x + 1, y - 1)
+            if y + 1 < self.size:
+                self.walk(x, y + 1)
+            if y - 1 >= 0:
+                self.walk(x , y - 1)
 
 field = Field()
 field.generate_field()
