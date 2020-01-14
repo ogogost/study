@@ -27,7 +27,6 @@ with open('data_one_year.txt', 'r') as data:
 
 print(weather['apr'][23])
 
-def process_average
 
 while True:
     try:

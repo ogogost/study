@@ -56,13 +56,18 @@ class Animal():
 
     def eat(self):
         print('Приятного аппетита!')
+
     def getName(self):
         return self.name
+
     def setName(self):
         self.name = self
+
     def makeNoise(self):
         print(self.name, ' говорит грррр')
 
 cat = Animal('Tima')
 
-print(Animal.getName)
+print(cat.getName())
+cat.makeNoise()
+cat.eat()
