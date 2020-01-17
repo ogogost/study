@@ -82,5 +82,16 @@ class Field:
             if y - 1 >= 0:
                 self.walk(x , y - 1)
 
+    def open_field(self):
+        for row in self.data:
+            for cell in row:
+                cell.is_open = True
+
+    def is_only_mines_left(self):
+        for row in self.data:
+            for cell in row:
+                if cell.mines_count != Cell.MINE and cell.is_open == False:
+                    return  False
+        return True
 field = Field()
 field.generate_field()

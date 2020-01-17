@@ -18,4 +18,12 @@ class View:
                     print('_ ', end='')
             print()
     def get_user_turn(self):
-        pass
+        try:
+            x = int(input('x: '))
+            y = int(input('y: '))
+            if x < 0 or x >= self.field.size:
+                return None
+            if y < 0 or y >= self.field.size:
+
+        except:
+            return None
