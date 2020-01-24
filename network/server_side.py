@@ -24,11 +24,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
     server.bind((HOST, PORT))
     server.listen()
 
-connections = []
-while True:
-    connection, addr = server.accept()
-    connections.append(connection)
-    threading.Thread(target=process_connection, args=(connection, connections)).start()
+    connections = []
+    while True:
+        connection, addr = server.accept()
+        connections.append(connection)
+        threading.Thread(target=process_connection, args=(connection, connections)).start()
 
 # another_connection, addr = server.accept()
 
